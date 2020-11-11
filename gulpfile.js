@@ -31,7 +31,7 @@ gulp.task('ship-to-gitlab', function (done) {
 
         for (var changedFileName of changedFileNames.split(',')) {
 
-            if (changedFileName !== null && changedFileName !== '' && changedFileName !== '.gitignore') {
+            if (changedFileName !== null && changedFileName !== '' && changedFileName !== '.gitignore' && !changedFileName.includes('.gitlab')) {
 
                 if (fs.existsSync('../wpf-docs/' + changedFileName)) {
                     // It will update the modified files
