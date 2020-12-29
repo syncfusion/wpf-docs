@@ -7,13 +7,13 @@ control: SfScheduler
 documentation: ug
 ---
 # Load On Demand in WPF Scheduler (SfScheduler)
-The scheduler supports to loading appointment on-demand with loading indicator and it improves the loading performance when you have appointments range for multiple years.
+The scheduler supports to loading appointment on demand with loading indicator and it improves the loading performance when you have appointments range for multiple years.
 
 ![Load on-demand in WPF Scheduler](LoadOnDemand_Images/LoadOnDemand.gif)
 
 ## QueryAppointments event
-The `QueryAppointments` event is used to load appointments in on-demand for the visible date range. You might start and stop the loading indicator animation before and after the appointments loaded using the `ShowBusyIndicator.`
-The `QueryAppointmentsEventArgs` has the following members which provide information for the `QueryAppointments` event.
+The [QueryAppointments](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_QueryAppointments) event is used to load appointments in on-demand for the visible date range. You might start and stop the loading indicator animation before and after the appointments loaded using the [ShowBusyIndicator](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ShowBusyIndicator).
+The [QueryAppointmentsEventArgs](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.QueryAppointmentsEventArgs.html) has the following members which provide information for the `QueryAppointments` event.
 
 [VisibleDateRange](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.DateRange.html) - Gets the current visible date range of scheduler that is used to load the appointments.
 
@@ -28,18 +28,33 @@ Scheduler.QueryAppointments += Scheduler_QueryAppointments;
 private void Scheduler_QueryAppointments(object sender, QueryAppointmentsEventArgs e)
 {
  Scheduler.ShowBusyIndicator = true;
- Scheduler.ItemsSource = this.GetAppointments(e.VisibleDateRange);
+ Scheduler.ItemsSource = this.GenerateSchedulerAppointments(e.VisibleDateRange);
  Scheduler.ShowBusyIndicator = false;
 }
 
-private IEnumerable GetAppointments(DateRange dateRange)
- {
-  // Add codes to generate appointments from the date range.
+private IEnumerable GenerateSchedulerAppointments(DateRange dateRange)
+{
+  Random ran = new Random();
+  int daysCount = (dateRange.ActualEndDate - dateRange.ActualStartDate).Days;
+  var appointments = new ObservableCollection<SchedulerModel>();
+      
+  for (int i = 0; i < 50; i++)
+  {
+    var startTime = dateRange.ActualStartDate.AddDays(ran.Next(0, daysCount + 1)).AddHours(ran.Next(0, 24));
+    appointments.Add(new SchedulerModel
+    {
+    From = startTime,
+    To = startTime.AddHours(1),
+    EventName = subjectCollection[ran.Next(0, subjectCollection.Count)],
+    Color = brush[ran.Next(0, brush.Count)],
+    });
+  }
+  return appointments;
 }
 {% endhighlight %}
 {% endtabs %}
 
-The `QueryAppointments` will be raised once any one of the following action will be taken.
+The [QueryAppointments](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_QueryAppointments) will be raised once any one of the following action will be taken.
 
  * Once the [ViewChanged](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ViewChanged) event is raised, the `QueryAppointments` will be raised.
 
@@ -50,10 +65,10 @@ The `QueryAppointments` will be raised once any one of the following action will
 * The `QueryAppointments` event will be triggered when the [ResourceGroupType](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ResourceGroupType) is changed.
 
 ## Load On Demand command
-The Scheduler notifies by `LoadOnDemandCommand` when the user changes the visible date range. You can get a visible date range from the `QueryAppointmentsEventArgs.` The default value for this `ICommand` is null. The `QueryAppointmentsEventArgs` passed as a command parameter.
+The Scheduler notifies by [LoadOnDemandCommand](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_LoadOnDemandCommand) when the user changes the visible date range. You can get a visible date range from the [QueryAppointmentsEventArgs](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.QueryAppointmentsEventArgs.html). The default value for this `ICommand` is null. The `QueryAppointmentsEventArgs` passed as a command parameter.
 
 You can define a ViewModel class that implements command and handle it by the CanExecute and Execute methods to check and execute on-demand loading. In execute method, you can perform the following operations,
-* You can start and stop the loading indicator animation before and after the appointments loaded using the `ShowBusyIndicator`.
+* You can start and stop the loading indicator animation before and after the appointments loaded using the [ShowBusyIndicator](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ShowBusyIndicator).
 * Once got appointment collection, you can load into the scheduler itemsource.
 
 {% tabs %}
@@ -67,7 +82,7 @@ You can define a ViewModel class that implements command and handle it by the Ca
 {% endhighlight %}
 {% highlight c#%}
 
-public class LoadOnDemandViewModel : INotifyPropertyChanged
+public class LoadOnDemandViewModel : NotificationObject
   {
     public ICommand LoadOnDemandCommand { get; set; }
     private IEnumerable events;
@@ -80,6 +95,7 @@ public class LoadOnDemandViewModel : INotifyPropertyChanged
             this.RaisePropertyChanged("Events");
           }
       }
+
     private bool showBusyIndicator;
     public bool ShowBusyIndicator
     {
@@ -89,16 +105,6 @@ public class LoadOnDemandViewModel : INotifyPropertyChanged
             showBusyIndicator = value;
             this.RaisePropertyChanged("ShowBusyIndicator");
           }
-    }
-    
-    public ObservableCollection<SchedulerResource> ResourceCollection
-    {
-      get { return resourceCollection; }
-      set
-        {
-         resourceCollection = value;
-         this.RaisePropertyChanged("ResourceCollection");
-        }
     }
     public SchedulerViewModel()
     {
@@ -112,7 +118,7 @@ public class LoadOnDemandViewModel : INotifyPropertyChanged
       await Task.Delay(1000);
       await Application.Current.MainWindow.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
             {
-                this.Events = this.GetAppointments((parameter as QueryAppointmentsEventArgs).VisibleDateRange);
+                this.Events = this.GenerateSchedulerAppointments((parameter as QueryAppointmentsEventArgs).VisibleDateRange);
             }));
       this.ShowBusyIndicator = false;
     }
@@ -122,20 +128,28 @@ public class LoadOnDemandViewModel : INotifyPropertyChanged
       return true;
     }
 
-    private IEnumerable GetAppointments(DateRange dateRange)
+    private IEnumerable GenerateSchedulerAppointments(DateRange dateRange)
     {
-      // Add Codes to generate appointments
+      Random ran = new Random();
+      int daysCount = (dateRange.ActualEndDate - dateRange.ActualStartDate).Days;
+      var appointments = new ObservableCollection<SchedulerModel>();
+      for (int i = 0; i < 50; i++)
+      {
+        var startTime = dateRange.ActualStartDate.AddDays(ran.Next(0, daysCount + 1)).AddHours(ran.Next(0, 24));appointments.Add(new SchedulerModel
+        {
+          From = startTime,
+          To = startTime.AddHours(1),
+          EventName = subjectCollection[ran.Next(0, subjectCollection.Count)],
+          Color = brush[ran.Next(0, brush.Count)],
+        });
+      }
+      return appointments;
     }
-
-    private void RaisePropertyChanged(string propertyName)
-    {
-        this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    } 
   }
 {% endhighlight %}
 {% endtabs %}
 
-The `LoadOnDemandCommand` will be invoked once any one of the following actions will be taken.
+The [LoadOnDemandCommand](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_LoadOnDemandCommand) will be invoked once any one of the following actions will be taken.
 
 * Once the [ViewChanged](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ViewChanged) event is raised, the `LoadOnDemandCommand` will also be raised.
 
@@ -146,7 +160,7 @@ The `LoadOnDemandCommand` will be invoked once any one of the following actions 
 * The `LoadOnDemandCommand` will be triggered when the [ResourceGroupType](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ResourceGroupType) is changed.
 
 ## Load On Demand for recurring appointment
-The scheduler control calculates the recurring series and displays appointments from the series in the active view. You can get a pattern appointment from the `RecurrenceHelper.GetPatternAppointment` method If the recurrence appointment is in the visible date range.
+The scheduler will add the occurrences of recurrence series based on the visible date range, you can use the [RecurrenceHelper.GetRecurrenceDateTimeCollection](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.RecurrenceHelper.html#Syncfusion_UI_Xaml_Scheduler_RecurrenceHelper_GetRecurrenceDateTimeCollection_System_String_System_DateTime_System_Nullable_System_DateTime__System_Nullable_System_DateTime__) to compare and load the recurrence appointment on demand in the ItemsSource.
 
 * The recurrence appointment should be added to the Scheduler [ItemsSource](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Scheduler.SfScheduler.html#Syncfusion_UI_Xaml_Scheduler_SfScheduler_ItemsSource) until the date of recurrence ends.
 
