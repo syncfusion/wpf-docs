@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Printing PDF Files | PDF Viewer | Wpf | Syncfusion
-description: The PDF Viewer supports printing a PDF file loaded in it. It supports printing using print dialog and silent batch printing. 
+title: Printing PDF Files in WPF Pdf Viewer control | Syncfusion
+description: Learn about Printing PDF Files support in Syncfusion Essential Studio WPF Pdf Viewer control, its elements and more.
 platform: wpf
 control: PDF Viewer
 documentation: ug
@@ -18,7 +18,7 @@ N>
 
 ## Silent Printing
 
-The [Print](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_Print) method of [PdfViewerControl](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html) and [PdfDocumentView](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfDocumentView.html) allows you to print PDF files silently to the system’s default printer, without any user interaction. You can enable the preferred settings for silent printing using the [PrinterSettings](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_PrinterSettings) property. The following code example shows how to perform silent printing in WPF PDF Viewer.
+The [Print](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_Print) method of [PdfViewerControl](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html) and [PdfDocumentView](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfDocumentView.html) allows you to print PDF files silently to the system's default printer, without any user interaction. You can enable the preferred settings for silent printing using the [PrinterSettings](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_PrinterSettings) property. The following code example shows how to perform silent printing in WPF PDF Viewer.
 
 {% tabs %}
 {%highlight c#%}

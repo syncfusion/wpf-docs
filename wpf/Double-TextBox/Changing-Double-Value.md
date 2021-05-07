@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Changing Double Value in WPF DoubleTextBox control | Syncfusion
-description: Learn here about Changing Double Value with Syncfusion WPF DoubleTextBox control and more details about the control features.
+title: Changing Double Value in WPF Double TextBox control | Syncfusion
+description: Learn about Changing Double Value support in Syncfusion WPF Double TextBox control, its elements and more.
 platform: wpf
 control: DoubleTextBox 
 documentation: ug
 ---
 
-# Changing Double Value in WPF DoubleTextBox
+# Changing Double Value in WPF Double TextBox
 
 The [DoubleTextBox](https://www.syncfusion.com/wpf-ui-controls/double-textbox) allows the user to change the value using the [Value](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.Shared.DoubleTextBox.html#Syncfusion_Windows_Shared_DoubleTextBox_Value) property.
 
@@ -130,7 +130,7 @@ doubleTextBox.Value = 12345.67;
 
 ![DoubleTextBox pasting the copied value in specific place](Changing-Double-Value_images/Pasting.png)
 
-## Changing double value by SpinButton
+## Show UpDown Button
 
 You can increment or decrement the double value of `DoubleTextBox` by setting the `ShowSpinButton` property value as `true`. Click UpButton to increment or DownButton to decrement the double value. The default value of `ShowSpinButton` property is `false`.
 
