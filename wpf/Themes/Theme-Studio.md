@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Getting Started with WPF Theme Studio | WPF | Syncfusion
-description: Learn all about how to create customized themes for Syncfusion WPF Controls and integrate it into the WPF Application. 
+description: Learn how to create customized themes for Syncfusion WPF Controls and integrate to your WPF Application.
 platform: WPF
 control: ThemeStudio
 documentation: ug
 ---
 
-# Theme Studio in WPF Themes (Themes and Appearance)
+# Getting Started with WPF Theme Studio
 
 The Theme Studio helps users to transform their visual presentation into a new theme in minutes. End users can select an appropriate base theme, change its primary color, preview and export it as a theme project, and utilize it in their applications for a rich user interface experience.
 
@@ -73,7 +73,7 @@ The WPF Theme Studio comes with various set of palettes for each theme variant.
 <ul>
 <li>FluentLight</li>
 <li>FluentDark</li>
-<ul>
+</ul>
 </td>
 </tr>
 <tr>
@@ -154,7 +154,7 @@ The WPF Theme Studio comes with various set of palettes for each theme variant.
 <li>MaterialDark</li>
 <li>MaterialLightBlue</li>
 <li>MaterialDarkBlue</li>
-<ul>
+</ul>
 </td>
 </tr>
 </table>
@@ -177,13 +177,13 @@ On installing the `Syncfusion WPF` suite, launch and select `Theme Studio` from 
 
 **Step 2:**
 
-The theme studio application has been divided into two sections: the controls preview section on the right, and the theme customization section on the left.
+The theme studio application has been divided into two sections: the controls preview section on the left, and the theme customization section on the right.
 
 ![Theme Studio for WPF](ThemeStudio_images/ThemeStudio-GettingStarted.png)
 
 **Step 3:**
 
-To apply predefined themes, select the appropriate themes from Themes List Dropdown available in the top left corner. 
+To apply predefined themes, select the appropriate themes from Themes List Dropdown. 
 
 ![Shows the List of Themes in ThemeStudio](ThemeStudio_images/ThemeStudio-Theme-Selection.png)
 
@@ -207,7 +207,7 @@ Let's see the step-by-step procedure for exporting theme project from theme stud
 
 **Step 1:**
 
-Click the `Export` button in the top right corner, below the exit of the theme studio application. 
+Click the `Export` button in the top right corner, beside the exit of the theme studio application. 
 
 ![Export option in Theme Studio for WPF](ThemeStudio_images/ThemeStudio-Export-Button.png)
 
@@ -240,6 +240,11 @@ The following exported theme project should be attached for corresponding target
 <th>
 Target Framework</th><th>
 Solution Project</th></tr>
+<tr>
+<td>
+.Net 5.0</td><td>
+Syncfusion.Themes.MaterialDarkYellow.WPF_NET50.csproj</td>
+</tr>
 <tr>
 <td>
 .Net Framework 4.6</td><td>
