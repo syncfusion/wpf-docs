@@ -266,18 +266,10 @@ The following image illustrates how to delete the annotation from the PDF docume
 When you place the mouse pointer over the annotation, the tooltip will be displayed. The tooltip contains the author name and text of the annotation.
  
  ![Display tooltip of the sticky note annotation](Annotation-images\Sticky-Note-Annotation-11.png)
- 
-## Keyboard shortcuts
-
-The following keyboard shortcuts are available to customize the annotation in the PDF document:
-
-*	Delete key: Deletes the selected annotation from the PDF document.
-*	Ctrl + Z: Performs undo functionality for recently performed operations.
-*	Ctrl + Y: Performs redo functionality for recently performed operations.
 
 ## Events
 
-The PdfViewerControl notifies through events, when `AnnotationChangedAction` such us adding, deleting, select, deselect, moving and resizing made in annotations. It also provides the annotations common information such as page index, bounds and action type performed in respective annotation. 
+The PdfViewerControl notifies through events, when `AnnotationChangedAction` such us adding, deleting, select, deselect, moving and resizing made in annotations. It also provides the annotations common information such as annotation name, page index, bounds and action type performed in respective annotation. 
 
 ### StickyNoteAnnotationChanged Event
 
@@ -314,3 +306,6 @@ private void PdfViewer_StickyNoteAnnotationChanged(object sender, StickyNoteAnno
 
 {% endhighlight %}
 {% endtabs %}
+
+
+N> You can refer to our [WPF PDF Viewer](https://www.syncfusion.com/wpf-controls/pdf-viewer) feature tour page for its groundbreaking feature representations. You can also explore our [WPF PDF Viewer example](https://github.com/syncfusion/wpf-demos) to know how to render and configure the pdfviewer.

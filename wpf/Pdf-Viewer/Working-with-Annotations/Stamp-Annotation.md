@@ -33,9 +33,6 @@ Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
     pdfviewer.AnnotationMode = PdfDocumentView.PdfViewerAnnotationMode.Stamp
 End Sub
 
-{% endhighlight %}
-{% endtabs %}
-
 The following image shows the stamp annotation being included in the PDF Document.
 
  ![Stamp annotation](Annotation-images\Stamp-Annotation-1.png)
@@ -239,17 +236,12 @@ You can create and add your custom stamps from the images available on the disk 
 
 ![Custom stamps](Annotation-images\custom-stamp.png)
 
-## Keyboard shortcuts
-
-The below keyboard shortcuts are available to customize the annotation in the PDF document.
-
-*	Delete key – Deletes the selected annotation from the PDF document.
-*	Ctrl + Z – Performs undo functionality for recently performed operations.
-*	Ctrl + Y – Performs redo functionality for recently performed operations.
+{% endhighlight %}
+{% endtabs %}
 
 ## Events
 
-The PdfViewerControl notifies through events, when `AnnotationChangedAction` such us adding, deleting, select, deselect, moving and resizing made in annotations. It also provides the annotations common information such as page index, bounds and action type performed in respective annotation. 
+The PdfViewerControl notifies through events, when `AnnotationChangedAction` such us adding, deleting, select, deselect, moving and resizing made in annotations. It also provides the annotations common information such as annotation name, page index, bounds and action type performed in respective annotation. 
 
 ### StampAnnotationChanged Event
 
@@ -286,3 +278,6 @@ private void PdfViewer_StampAnnotationChanged(object sender, StampAnnotationChan
 
 {% endhighlight %}
 {% endtabs %}
+
+
+N> You can refer to our [WPF PDF Viewer](https://www.syncfusion.com/wpf-controls/pdf-viewer) feature tour page for its groundbreaking feature representations. You can also explore our [WPF PDF Viewer example](https://github.com/syncfusion/wpf-demos) to know how to render and configure the pdfviewer.
