@@ -63,7 +63,7 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 {% endhighlight %}
 {% endtabs %}
 
-![Changing RowHeight of particular Row image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img1.png)
+![Customizing Particular Row Height in WPF DataGrid](Row-Height-Customization_images/wpf-datagrid-row-height-customization.png)
 
 ## QueryRowHeight event
 
@@ -95,7 +95,7 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 {% endhighlight %}
 {% endtabs %}
 
-![OnDemand Changing of RowHeight image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img2.png)
+![Changing Specific Row Height in WPF DataGrid](Row-Height-Customization_images/wpf-datagrid-change-row-height.png)
 
 ### Limitations
 
@@ -105,7 +105,7 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 
 You can fit the row height based on its content in `QueryRowHeight` event handler using [GetAutoRowHeight](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.GridColumnSizer.html#Syncfusion_UI_Xaml_Grid_GridColumnSizer_GetAutoRowHeight_System_Int32_Syncfusion_UI_Xaml_Grid_GridRowSizingOptions_System_Double__System_Boolean_) method. This improves the readability of the content and it does not affect the loading performance of the SfDataGrid as the `QueryRowHeight` event triggered for rows in on-demand.
 
-`GetAutoRowHeight` method returns `true` when the row height is calculated for record & header rows and returns `false` for other rows. Calculated height based on content set to the `out` parameter and you can assign the calculated height to the `Height` property of `QueryRowHeightEventArgs`.
+`GetAutoRowHeight` method returns `true` when the row height is calculated for record & header rows and returns `false` for other rows. Calculated height based on content set to the `out` parameter and you can assign the calculated height to the `Height` property of [QueryRowHeightEventArgs](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.QueryRowHeightEventArgs.html).
 
 Below are the parameter to `GetAutoRowHeight` method, 
 
@@ -147,7 +147,7 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 
 Here, row heights are customized based on the large text content.
 
-![AutoFit RowHeight based on content Image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img3.png)
+![AutoFit RowHeight in WPF DataGrid](Row-Height-Customization_images/wpf-datagrid-auto-fit-row-height.png)
 
 #### GridRowSizingOptions
 
@@ -195,7 +195,7 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 
 Here `CustomerID` and `Country` columns are excluded from height calculation and the row height is calculated based on `CustomerName` column only.
  
-![AutoFit RowHeight for specific columns Image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img4.png)
+![AutoFit RowHeight for Specific Columns in WPF DataGrid](Row-Height-Customization_images/wpf-datagrid-autofit-height-based-on-column.png)
 
 ## Reset Row Height at runtime
 
@@ -231,7 +231,7 @@ dataGrid.GetVisualContainer().InvalidateMeasureInfo();
 
 You can set the height of the row based on the content after editing by refreshing the row height in [SfDataGrid.CurrentCellEndEdit](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html) event.
 
-You can call the `InvalidateRowHeight` method in `CurrentCellEndEdit` event to reset the particular row height. Then call the `InvalidateMeasureInfo` method of `VisualContainer` to refresh the view. Now the `QueryRowHeight` event is called again for edited row alone and row height is calculated based on edited content.
+You can call the `InvalidateRowHeight` method in [CurrentCellEndEdit](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html#Syncfusion_UI_Xaml_Grid_SfDataGrid_CurrentCellEndEdit) event to reset the particular row height. Then call the `InvalidateMeasureInfo` method of `VisualContainer` to refresh the view. Now the `QueryRowHeight` event is called again for edited row alone and row height is calculated based on edited content.
 
  
 {% tabs %}
@@ -321,7 +321,7 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 {% endhighlight %}
 {% endtabs %}
 
-![AutoFit HeaderRowHeight Image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img5.png)
+![AutoFit Header RowHeight based on Content in WPF DataGrid](Row-Height-Customization_images/wpf-datagrid-header-row-height.png)
 
 ## Change StackedHeaderRow Height based on its content
 
@@ -379,11 +379,11 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 {% endhighlight %}
 {% endtabs %}
 
-![AutoFit StackedHeaderRow Image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img6.png)
+![AutoFit Stacked HeaderRow Height based on Content in wpf datagrid](Row-Height-Customization_images/wpf-datagrid-stacked-header-row-height.png)
 
 ## Change TableSummaryRow Height
 
-You can change the table summary row height by using `QueryRowHeight` event. You can use [IsTableSummaryIndex](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.GridIndexResolver.html#Syncfusion_UI_Xaml_Grid_GridIndexResolver_IsTableSummaryIndex_Syncfusion_UI_Xaml_Grid_SfDataGrid_System_Int32_) extension method to identify whether the row is table summary or not by passing row index. 
+You can change the table summary row height by using [QueryRowHeight](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.SfDataGrid.html#Syncfusion_UI_Xaml_Grid_SfDataGrid_QueryRowHeight) event. You can use [IsTableSummaryIndex](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Grid.GridIndexResolver.html#Syncfusion_UI_Xaml_Grid_GridIndexResolver_IsTableSummaryIndex_Syncfusion_UI_Xaml_Grid_SfDataGrid_System_Int32_) extension method to identify whether the row is table summary or not by passing row index. 
 
 
 {% tabs %}
@@ -403,5 +403,5 @@ void dataGrid_QueryRowHeight(object sender, QueryRowHeightEventArgs e)
 {% endhighlight %}
 {% endtabs %}
 
-![Customized TableSummaryRow height Image in wpf datagrid](Row-Height-Customization_images/Row-Height-Customization_img7.png)
+![Customizing TableSummaryRow Height in WPF DataGrid](Row-Height-Customization_images/wpf-datagrid-table-summary-row-height.png)
 
