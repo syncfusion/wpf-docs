@@ -28,6 +28,8 @@ A map contains a set of elements, including shapes, bubbles, annotations, and da
 
 Tree map-like support provides rich UI for shapes and bubbles. Annotation and CustomDataBinding items shows additional information on the map.
 
+Maps also provide multilayer support, which can be added as a sublayer, and shapes such as polygons, polylines, and points can be added to them.
+
 Options like zooming, panning, and map selection extend the interactivity of the map.
 
 ![Maps - Overview](Overview_images/Overview_img1.png)
@@ -39,4 +41,5 @@ A map is maintained through layers. The shape file layer is one of the layers th
 
 ![Maps - Overview](Overview_images/Overview_SfMap_Shape_layers.png)
 
+N> You can refer to our [WPF Map](https://www.syncfusion.com/wpf-controls/map) feature tour page for its groundbreaking feature representations. You can also explore our [WPF Map example](https://github.com/syncfusion/wpf-demos/tree/master/map) to know how to render and configure the map.
 

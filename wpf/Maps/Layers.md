@@ -9,7 +9,7 @@ documentation: ug
 
 # Layers in WPF Maps (SfMap)
 
-The maps control is maintained through [`Layers`](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Maps.MapLayer.html), a map can accommodate one or more layers.
+The [WPF Maps](https://www.syncfusion.com/wpf-controls/map) control is maintained through [`Layers`](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Maps.MapLayer.html), a map can accommodate one or more layers.
 
 The maps control consists the following two layers:
 
@@ -209,7 +209,7 @@ ItemsTemplate is a type of DataTemplate that is used to override the default tem
 
 ![Displaying Items on a Maps](Displaying-Items-on-a-Map_images/Displaying-Items-on-a-Map_img1.png)
 
-## Displaying layer in the view
+## ZOrder index for layers
 
 The [`BaseMapIndex`](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Maps.SfMap.html#Syncfusion_UI_Xaml_Maps_SfMap_BaseMapIndex) property allows drill-down from main layer to another layer.
 
@@ -371,6 +371,8 @@ The [`ShapesUnSelected`](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.M
 {% endhighlight %}
 
 {% endtabs %}
+
+N> You can also explore our [WPF Map example](https://github.com/syncfusion/wpf-demos/tree/master/map) to know how to render and configure the map.
 
 ## see also
 
