@@ -128,6 +128,10 @@ private void PdfViewer_ZoomChanged(object sender, ZoomEventArgs args)
 
 From the 19.3 version, the [MaximumZoomPercentage](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_MaximumZoomPercentage) of the PDF Viewer can be extended up to 6400% with the support of active view port rendering at higher zoom percentages. It renders only the part of the PDF file that is visible on-screen and ignoring the parts that are outside the viewport. The mode is automatically enabled when the page size or zoom increased beyond a specified limit on the zooming.  This approach will be helpful to open the large-size pages containing PDF documents at higher zoom levels.
 
+N> Active view port rendering is supported only for the PDFium (default) rendering engine.
+
+You need to set the [MaximumZoomPercentage](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_MaximumZoomPercentage) and call [ZoomTo](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_PdfViewer_PdfViewerControl_ZoomTo_System_Int32_) method to achieve it from the application level as shown in the following code example. 
+
 {% tabs %}
 {% highlight c# %}
 
@@ -141,4 +145,11 @@ pdfviewer.ZoomTo(1200);
 {% endhighlight %}
 {% endtabs %}
 
-N> This is applicable only for the PDFium (default) rendering engine.
+## Pinch to zoom
+
+The WPF PDF Viewer supports pinch-to-zoom, allows users to magnify using touch gestures when working on a device with a touch screen. To use pinch-to-zoom, place two fingers on the control and move them apart to zoom in (or together to zoom out).
+
+## Mouse and keyboard shortcuts
+
+**Ctrl (key) + Scroll the mouse wheel up** - To perform zoom in.
+**Ctrl (key) + Scroll the mouse wheel down** - To perform zoom out.
