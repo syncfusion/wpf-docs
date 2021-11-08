@@ -11,7 +11,7 @@ documentation: ug
 
 Syncfusion Essential Studio for WPF is a comprehensive collection of over 90+ essential WPF controls like DataGrid, Chart, Diagram, and PDF Viewer for building powerful line-of-business Windows applications faster. Syncfusion WPF controls provides unparalleled performance, stunning built-in themes, touch-friendly UI, localization and seamless integration with Visual Studio.
 
-## How to best read this user guide
+## How to best read this userguide
 
 * The best way to get started would be to read the “Getting Started” section of the documentation for the component that you would like to start using first. The “Getting Started” guide gives just enough information that you need to know before starting to write code. This is the only section that is recommended to be read end-to-end before starting to write code, since all other information can be referred when needed.
 * Now that you are familiar with the basics of using the component, the next step would be to start integrating the component into your application. A good starting point is to refer to the code examples in the online or offline sample browser that contains hundreds of code examples, as it is very likely that you may find a code example that resembles your intended usage scenario.
