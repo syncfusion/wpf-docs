@@ -9,7 +9,7 @@ documentation: ug
 
 # Welcome to Syncfusion WPF UI controls
 
-Syncfusion Essential Studio for WPF is a comprehensive collection of over 90+ essential WPF controls like DataGrid, Chart, Diagram, and PDF Viewer for building powerful line-of-business Windows applications faster. Syncfusion WPF controls provides unparalleled performance, stunning built-in themes, touch-friendly UI, localization and seamless integration with Visual Studio.
+Syncfusion Essential Studio for WPF is a comprehensive collection of over 90+ essential WPF controls like DataGrid, Chart, Diagram, and PDF Viewer for building powerful line-of-business Windows applications faster. Syncfusion WPF controls provides unparalleled performance, stunning built-in themes, touch-friendly UI, localization and seamless integration with Visual Studio  .
 
 ## How to best read this user guide
 
